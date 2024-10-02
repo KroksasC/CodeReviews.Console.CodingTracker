@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.Configuration;
-using System.Collections.Specialized;
-using System.Text.RegularExpressions;
 using Spectre.Console;
-using System.Runtime.Remoting.Lifetime;
 using Dapper;
 
 namespace CodingTracker
 {
     internal class DatabaseHelpers
     {
-        private static string connectionString = ConfigurationManager.AppSettings.Get("Key0");
+        private static string? connectionString = ConfigurationManager.AppSettings.Get("Key0");
         public static void InitializeDatabase()
         {
             var dbFilePath = ConfigurationManager.AppSettings.Get("Key1"); ;
@@ -129,7 +121,7 @@ namespace CodingTracker
             ViewCodingSessions();
             AnsiConsole.MarkupLine("\n\n[blue]Write id of coding session that you want to update. Enter 0 to return to menu[/]\n");
 
-            string id = Console.ReadLine();
+            string? id = Console.ReadLine();
 
             if(id == "0")
             {
@@ -178,7 +170,7 @@ namespace CodingTracker
             AnsiConsole.Markup("[purple]\n\nPlease type Id of the record would like to Delete.Type 0 to return to main menu.\n\n[/]");
 
             AnsiConsole.WriteLine();
-            string id = Console.ReadLine();
+            string? id = Console.ReadLine();
             if(id == "0")
             {
                 Menu.GetUserInput();

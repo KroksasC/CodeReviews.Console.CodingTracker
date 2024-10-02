@@ -1,9 +1,4 @@
-﻿using Spectre.Console;
-using System.Globalization;
-using System;
-
-
-namespace CodingTracker
+﻿namespace CodingTracker
 {
     internal class Program
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Spectre.Console;
+﻿using Spectre.Console;
 
 namespace CodingTracker
 {
@@ -28,7 +23,7 @@ namespace CodingTracker
                 AnsiConsole.MarkupLine("[blue]c. Update coding session[/]");
                 AnsiConsole.MarkupLine("[purple]d. Delete coding session[/]");
 
-                string option = Console.ReadLine();
+                string? option = Console.ReadLine();
 
                 switch (option) 
                 {

@@ -1,9 +1,4 @@
 ﻿using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodingTracker
 {
@@ -13,7 +8,7 @@ namespace CodingTracker
         {
             AnsiConsole.MarkupLine("\n[red]Enter date and time(09/12/2024 00:12:10) or press 0 to exit: [/]\n");
             AnsiConsole.WriteLine();
-            string userDateInput = Console.ReadLine();
+            string? userDateInput = Console.ReadLine();
             if(userDateInput == "0") {
                 Menu.GetUserInput(); 
             }
@@ -33,16 +28,17 @@ namespace CodingTracker
         }
         public static void GetAllTimesInput(ref DateTime startTime, ref DateTime endTime, ref TimeSpan duration)
         {
-            DateTime startDateTime = GetTimeInput();
-            DateTime endDateTime = GetTimeInput();
-            while (endDateTime < startTime)
+            startTime = GetTimeInput();
+            endTime = GetTimeInput();
+            while (endTime < startTime)
             {
+                Console.Clear();
                 AnsiConsole.MarkupLine("[red]EndTime cant be less than StartTime, try again![/]");
-                startDateTime = GetTimeInput();
-                endDateTime = GetTimeInput();
+                endTime = GetTimeInput();
+                startTime = GetTimeInput();
 
             }
-            TimeSpan Duration = endDateTime - startDateTime;
+            TimeSpan Duration = endTime - startTime;
         }
         
     }
